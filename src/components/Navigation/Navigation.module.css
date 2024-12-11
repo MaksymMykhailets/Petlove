@@ -1,0 +1,98 @@
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 28px 20px 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .nav {
+    padding: 32px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .nav {
+    padding: 32px 64px;
+  }
+}
+
+.nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.nav .logo {
+  color: #262626;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 768px) {
+  .nav .logo {
+    font-size: 28px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .nav .heart {
+    margin: 0 3px;
+  }
+}
+
+.nav .menuIcon {
+  color: #262626;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .nav .menuIcon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.homeNav {
+  background-color: #F6B83D;
+  padding: 18px 20px 0;
+  margin: 10px 20px 0;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+}
+
+@media screen and (min-width: 768px) {
+  .homeNav {
+    padding: 24px 32px 0;
+    margin: 16px 32px 0;
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+  }
+}
+
+.homeNav .logo,
+.homeNav .menuIcon{
+  color: #fff;
+}
+
+.homeNav .icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.homeNav .circle {
+  width: 40px;
+  height: 40px;
+  background-color: #FFF4DF;
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.homeNav .userIcon {
+  color: #F6B83D;
+}
