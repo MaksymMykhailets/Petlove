@@ -24,6 +24,13 @@
     flex-direction: column;
     gap: 24px;
   }
+
+  @media screen and (min-width: 768px) {
+    .content {
+        gap: 32px;
+    }
+    
+  }
   
   .title {
     color: #FFF;
@@ -53,9 +60,30 @@
     .description {
         font-size: 18px;
         line-height: 1.22; 
+        align-self: flex-end;
+        display: flex;
+        width: 255px;
     }
 }
+
+@media screen and (min-width: 1280px) {
+
+  .content{
+    display: flex;
+    flex-direction: row;
+    gap: 73px;
+  }
+    .title {
+        font-size: 90px;
+        width: 760px;
+    }
+
+    .description {
+        font-size: 18px;
+    }
   
+}
+
   .image {
     margin: 0 20px 10px;
     display: flex;

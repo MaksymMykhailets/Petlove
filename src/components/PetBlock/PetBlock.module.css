@@ -1,0 +1,33 @@
+.petBlock {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F6B83D;
+    border-radius: 30px;
+    width: 100%;
+  }
+
+  @media screen and (min-width: 768px) {
+    .petBlock {
+      border-radius: 60px;
+    }
+    
+  }
+
+.petImage {
+  margin-right: 15px;
+  }
+
+@media screen and (min-width: 768px) {
+  .petImage {
+    margin-right: 20px;
+  }
+  
+}
+
+@media screen and (min-width: 1280px) {
+  .petImage {
+    margin-left: 50px;
+  }
+  
+}
