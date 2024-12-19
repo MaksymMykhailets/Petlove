@@ -1,0 +1,111 @@
+.nav .menuIcon {
+  color: #262626;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .nav .menuIcon {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+.homeNav .menuIcon {
+  color: #fff;
+}
+
+.homeNav .icons {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.burgerMenu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 60%;
+  height: 100dvh;
+  background-color: #F6B83D;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 120px 20px 40px;
+  z-index: 100;
+}
+
+.homeNav .burgerMenu {
+  background-color: #FFF;
+}
+
+.closeIcon {
+  position: absolute;
+  top: 28px;
+  right: 20px;
+  color: #fff;
+  cursor: pointer;
+}
+
+.homeNav .closeIcon {
+  color: #262626;
+}
+
+.menuList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.menuItem {
+  display: flex;
+  justify-content: center;
+  color: #FFF;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 30px;
+  padding: 15px 20px;
+  transition: color 0.3s ease;
+
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.homeNav .menuItem {
+  color: #262626;
+  border-color: rgba(38, 38, 38, 0.15);
+}
+
+.menuItem:hover,
+.menuItem.active {
+  border-color: #FFF;
+}
+
+.homeNav .menuItem:hover,
+.homeNav .menuItem.active {
+  border-color: #F6B83D;
+}
+
+.icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.circle {
+  width: 40px;
+  height: 40px;
+  background-color: #FFF4DF;
+  padding: 10px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+  
+.userIcon {
+  color: #F6B83D;
+}
+
+.authButtons {
+  width: 100%;
+}

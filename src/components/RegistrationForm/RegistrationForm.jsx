@@ -8,6 +8,7 @@ import css from "./RegistrationForm.module.css";
 import { FiEyeOff, FiEye } from "react-icons/fi";
 import { FaCheck } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
+import { useNavigate } from "react-router-dom";
 
 const schema = yup.object().shape({
   name: yup.string().required("Name is required"),
@@ -28,6 +29,7 @@ const RegistrationForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -84,6 +86,7 @@ const RegistrationForm = () => {
     const { name, email, password } = data;
     try {
       await dispatch(signup({ name, email, password }));
+      navigate("/profile");
     } catch (error) {
       alert(error.message);
     }

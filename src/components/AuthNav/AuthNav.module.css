@@ -1,0 +1,46 @@
+.authNav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.authNav .registerButton,
+.authNav .loginButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  padding: 15px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.authNav .loginButton {
+  background-color: transparent;
+  color: #fff;
+  border: 1px solid #fff;
+}
+.authNavHome .loginButton {
+  background-color: #f6b83d;
+  color: #fff;
+  border: none;
+}
+
+.authNav .registerButton {
+  background-color: #fff;
+  color: #f6b83d;
+  border: none;
+}
+
+.authNavHome .registerButton {
+  background-color: #FFF4DF;
+  color: #f6b83d;
+}
+
+.loginButton:hover,
+.registerButton:hover {
+  opacity: 0.8;
+  cursor: pointer;
+};

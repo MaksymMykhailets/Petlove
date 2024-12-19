@@ -8,6 +8,7 @@ import css from "./LoginForm.module.css";
 import { FiEyeOff, FiEye } from "react-icons/fi";
 import { FaCheck } from "react-icons/fa6";
 import { RxCross2 } from "react-icons/rx";
+import { useNavigate } from "react-router-dom";
 
 const schema = yup.object().shape({
   email: yup
@@ -23,6 +24,7 @@ const schema = yup.object().shape({
 const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -56,6 +58,7 @@ const LoginForm = () => {
     const { email, password } = data;
     try {
       await dispatch(signin({ email, password }));
+      navigate("/profile");
     } catch (error) {
       alert(error.message);
     }

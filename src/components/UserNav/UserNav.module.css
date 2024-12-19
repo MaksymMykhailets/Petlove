@@ -1,0 +1,16 @@
+.logoutButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 30px;
+  padding: 15px 20px;
+  font-size: 14px;
+  font-weight: 700;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.logoutButton:hover {
+  opacity: 0.8;
+  cursor: pointer;
+};
