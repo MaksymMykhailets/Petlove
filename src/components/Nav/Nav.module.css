@@ -1,3 +1,7 @@
+.container {
+  display: flex;
+}
+
 .nav .menuIcon {
   color: #262626;
   cursor: pointer;
@@ -14,10 +18,18 @@
   color: #fff;
 }
 
+.headerNav {
+  display: none;
+}
+
 .homeNav .icons {
   display: flex;
   align-items: center;
   gap: 12px;
+}
+
+.menuButton {
+  background: none;
 }
 
 .burgerMenu {
@@ -108,4 +120,12 @@
 
 .authButtons {
   width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .headerNav {
+    display: flex;
+    gap: 8px;
+    margin-right: 16px;
+  }
 }

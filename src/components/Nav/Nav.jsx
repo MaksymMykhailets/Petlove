@@ -19,19 +19,21 @@ const Nav = () => {
   };
 
   const isActive = (path) => location.pathname === path;
+  const shouldShowUserBar = isAuthenticated && location.pathname !== "/register" && location.pathname !== "/login";
 
   return (
     <nav className={`${css.nav} ${isHomePage ? css.homeNav : ""}`}>
       <div className={css.container}>
+        {!isHomePage ? (
+          <div className={css.headerNav}>
+          {isAuthenticated ? <UserNav /> : <AuthNav />}
+        </div>) : null
+          }
         <div className={css.icons}>
-        {isAuthenticated && location.pathname !== "/register" && location.pathname !== "/login" ? (
-          <UserBar />
-        ) : null}
-          <IoMenu
-            className={css.menuIcon}
-            size={32}
-            onClick={toggleMenu}
-            />
+        {shouldShowUserBar && <UserBar />}
+          <button className={css.menuButton} onClick={toggleMenu}>
+            <IoMenu className={css.menuIcon} size={32} />
+          </button>
         </div>
         </div>
 

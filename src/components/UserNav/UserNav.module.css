@@ -8,9 +8,21 @@
   font-weight: 700;
   text-transform: uppercase;
   width: 100%;
+  border: none;
+}
+
+.authNav .logoutButton {
+  background-color: #f6b83d;
+  color: #fff;
+  border: 1px solid #fff;
+}
+
+.authNavHome .logoutButton {
+  background-color: #FFF4DF;
+  color: #f6b83d;
 }
 
 .logoutButton:hover {
   opacity: 0.8;
   cursor: pointer;
-};
+}
