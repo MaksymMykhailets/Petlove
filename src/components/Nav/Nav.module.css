@@ -2,6 +2,19 @@
   display: flex;
 }
 
+.headerMenu {
+  display: none;
+}
+
+@media screen and (min-width: 1280px) {
+  .headerMenu {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-right: 167px;
+  }
+}
+
 .nav .menuIcon {
   color: #262626;
   cursor: pointer;
@@ -30,6 +43,8 @@
 
 .menuButton {
   background: none;
+  margin: 0;
+  padding: 0;
 }
 
 .burgerMenu {
@@ -127,5 +142,57 @@
     display: flex;
     gap: 8px;
     margin-right: 16px;
+    align-items: center;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .menuButton {
+    display: none;
+  }
+
+  .burgerMenu {
+    display: none;
+  }
+
+  .headerNav {
+    margin-right: 0;
+  }
+
+  .menuList {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+  }
+
+  .menuItem {
+    background: transparent;
+    color: #262626;
+    font-size: 16px;
+    padding: 15px 20px;
+    font-weight: 500;
+    transition: color 0.3s ease;
+    transition: border-color 0.3s ease;
+    cursor: pointer;
+    border-radius: 30px;
+    border: 1px solid rgba(38, 38, 38, 0.15);
+  }
+
+
+  .homeNav .menuItem {
+    color: #FFF;
+    border: 1px solid rgba(255, 255, 255, 0.40);
+  }
+
+  .homeNav .menuItem:hover,
+  .homeNav .menuItem:focus,
+  .homeNav .menuItem.active {
+    border-color: #FFF;
+  }
+
+  .menuItem:hover,
+  .menuItem:focus,
+  .menuItem.active {
+    border-color: #F6B83D;
   }
 }

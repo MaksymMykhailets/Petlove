@@ -9,20 +9,34 @@
   text-transform: uppercase;
   width: 100%;
   border: none;
+  transition: background-color 0.3s ease;
+}
+
+@media screen and (min-width: 768px) {
+  .logoutButton {
+    font-size: 16px;
+  }
 }
 
 .authNav .logoutButton {
   background-color: #f6b83d;
   color: #fff;
-  border: 1px solid #fff;
+  border: 1px solid rgba(255, 255, 255, 0.50);
 }
 
 .authNavHome .logoutButton {
   background-color: #FFF4DF;
   color: #f6b83d;
+  border: none;
 }
 
-.logoutButton:hover {
-  opacity: 0.8;
-  cursor: pointer;
+.logoutButton:hover,
+.logoutButton:focus {
+  background-color: #F9B020;
+  border-color: #fff;
+}
+
+.authNavHome .logoutButton:hover,
+.authNavHome .logoutButton:focus {
+  background-color: #FBE7C1;
 }

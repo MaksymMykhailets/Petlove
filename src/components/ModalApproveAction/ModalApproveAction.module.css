@@ -31,10 +31,6 @@
     cursor: pointer;
   }
   
-  .closeButton:hover {
-    color: #999;
-  }
-  
   .iconContainer {
     display: flex;
     justify-content: center;
@@ -70,8 +66,10 @@
     font-size: 14px;
     font-weight: 700;
     flex: 1;
-
+    transition: color 0.3s ease;
+    transition: background-color 0.3s ease;
     }
+
   .confirmButton {
     background: #F6B83D;
     color: #fff;
@@ -83,9 +81,9 @@
   }
   
   .cancelButton:hover {
-    background: #e5e7eb;
+    background-color: #e5e7eb;
   }
   
   .confirmButton:hover {
-    background: #f9a825;
+    background-color: #f9a825;
   }

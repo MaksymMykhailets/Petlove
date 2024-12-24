@@ -41,11 +41,25 @@ const Nav = () => {
   return (
     <nav className={`${css.nav} ${isHomePage ? css.homeNav : ""}`}>
       <div className={css.container}>
-        {!isHomePage ? (
-          <div className={css.headerNav}>
-            {isAuthenticated ? <UserNav /> : <AuthNav />}
+        <div className={css.headerNav}>
+          <div className={css.headerMenu}>
+          <Link to="/news" className={`${css.menuItem} ${isActive("/news") ? css.active : ""}`}>
+            News
+          </Link>
+          <Link to="/notices" className={`${css.menuItem} ${isActive("/notices") ? css.active : ""}`}>
+            Find pet
+          </Link>
+          <Link to="/friends" className={`${css.menuItem} ${isActive("/friends") ? css.active : ""}`}>
+            Our friends
+          </Link>
           </div>
-        ) : null}
+          {isAuthenticated ? (
+            <UserNav onClose={() => setMenuOpen(false)} />
+          ) : (
+            <AuthNav onClose={() => setMenuOpen(false)} />
+          )}
+        </div>
+
         <div className={css.icons}>
           {shouldShowUserBar && <UserBar />}
           <button className={css.menuButton} onClick={toggleMenu}>
@@ -90,7 +104,7 @@ const Nav = () => {
             {isAuthenticated ? (
               <UserNav onClose={() => setMenuOpen(false)} />
             ) : (
-            <AuthNav onClose={() => setMenuOpen(false)} />
+              <AuthNav onClose={() => setMenuOpen(false)} />
             )}
           </div>
         </div>

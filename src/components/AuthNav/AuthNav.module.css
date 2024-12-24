@@ -5,14 +5,15 @@
 }
 
 @media screen and (min-width: 768px) {
-  .authNav {
+  .authNav,
+  .authNavHome {
     flex-direction: row;
     gap: 8px;
   }
 }
 
 .registerButton,
-.loginButton{
+.loginButton {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -23,12 +24,26 @@
   text-transform: uppercase;
   width: 100%;
   border: none;
+  transition: color 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
-.loginButton {
+.authNav .loginButton {
   background-color: #f6b83d;
   color: #fff;
-  border: 1px solid #fff;
+  border: none;
+}
+
+.authNavHome .loginButton {
+  background-color: #f6b83d;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.40);
+}
+
+.loginButton:hover,
+.loginButton:focus {
+  background-color: #F9B020;
+  border-color: #fff;
 }
 
 .registerButton {
@@ -36,8 +51,7 @@
   color: #f6b83d;
 }
 
-.loginButton:hover,
-.registerButton:hover {
-  opacity: 0.8;
-  cursor: pointer;
+.registerButton:hover,
+.registerButton:focus {
+  background-color: #FBE7C1;
 }
