@@ -1,4 +1,4 @@
-import Title from "../../components/Title/Ttitle";
+import Title from "../../components/Title/Title";
 import PetBlock from "../../components/PetBlock/PetBlock";
 import LoginForm from "../../components/LoginForm/LoginForm";
 import dogImageMob from "../../img/dog-login@2x.webp";

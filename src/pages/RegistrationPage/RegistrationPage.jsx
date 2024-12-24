@@ -1,4 +1,4 @@
-import Title from "../../components/Title/Ttitle";
+import Title from "../../components/Title/Title";
 import PetBlock from "../../components/PetBlock/PetBlock";
 import RegistrationForm from "../../components/RegistrationForm/RegistrationForm";
 import catImageMob from "../../img/cat-register@2x.webp";
