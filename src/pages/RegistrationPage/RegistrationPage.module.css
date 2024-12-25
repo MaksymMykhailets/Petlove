@@ -1,73 +1,74 @@
 .registrationPage {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    gap: 10px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 10px;
+}
 
-  @media screen and (min-width: 768px) {
-    .registrationPage {
-      padding: 32px;
-      gap: 16px;
-    }
-  }
-
-  @media screen and (min-width: 1280px) {
-    .registrationPage {
-      flex-direction: row;
-      gap: 32px;
-    }
-  }
-
-  .container {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background-color: #FFF;
-    border-radius: 30px;
-    padding: 27px 20px;
-  }
-
-  @media screen and (min-width: 768px) {
-    .container {
-      border-radius: 60px;
-      padding: 30px 140px;
-    }
-  }
-
-  @media screen and (min-width: 1280px) {
-    .container {
-      padding: 82px 84px;
-    }
-  }
-  
-  .footerText, .footerText a {
-    display: flex;
-    align-self: center;
-    font-size: 12px;
-    font-weight: 500;
-  }
-  
-  .footerText {
-    margin-top: 12px;
-    color: rgba(38, 38, 38, 0.50);
-  }
-
-  @media screen and (min-width: 768px) {
-    .footerText, .footerText a {
-      font-size: 14px;
-    }
-    .footerText {
-      margin-top: 16px;
-    
+@media screen and (min-width: 768px) {
+  .registrationPage {
+    padding: 32px;
+    gap: 16px;
   }
 }
-  
+
+@media screen and (min-width: 1280px) {
+  .registrationPage {
+    flex-direction: row;
+    gap: 32px;
+  }
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: #fff;
+  border-radius: 30px;
+  padding: 27px 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    border-radius: 60px;
+    padding: 30px 140px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .container {
+    padding: 82px 84px;
+  }
+}
+
+.footerText,
+.footerText a {
+  display: flex;
+  align-self: center;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.footerText {
+  margin-top: 12px;
+  color: rgba(38, 38, 38, 0.5);
+}
+
+@media screen and (min-width: 768px) {
+  .footerText,
   .footerText a {
-    color: #F6B83D;
+    font-size: 14px;
   }
-  
-  .footerText a:hover {
-    text-decoration: underline;
+  .footerText {
+    margin-top: 16px;
   }
+}
+
+.footerText a {
+  color: #f6b83d;
+}
+
+.footerText a:hover {
+  text-decoration: underline;
+}

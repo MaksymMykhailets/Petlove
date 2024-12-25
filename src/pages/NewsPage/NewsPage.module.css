@@ -1,0 +1,37 @@
+.container {    
+    margin-top: 26px;
+    padding: 0 20px;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        margin-top: 32px;
+        padding: 0 32px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .container {
+        padding: 0 64px;
+    }
+}
+
+.newsTitle {
+    font-size: 28px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+@media screen and (min-width: 768px) {
+    .newsTitle {
+        font-size: 54px;
+    } 
+}
+
+@media screen and (min-width: 768px) {
+    .searchWrapper {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 44px;
+    }
+}

@@ -10,6 +10,9 @@ const ModalApproveAction = ({ onConfirm, onCancel, message }) => {
     if (onConfirm) {
       onConfirm();
     }
+    if (onCancel) {
+      onCancel();
+    }
     navigate("/home");
   };
 

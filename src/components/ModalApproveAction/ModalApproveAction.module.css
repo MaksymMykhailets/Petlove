@@ -19,6 +19,7 @@
     max-width: 400px;
     width: 90%;
     position: relative;
+    justify-items: center;
   }
   
   .closeButton {
@@ -41,7 +42,6 @@
     background-color: #FFF4DF;
     font-size: 44px;
     margin-bottom: 20px;
-    justify-self: center;
   }
   
   .message {
@@ -59,16 +59,26 @@
   
   .confirmButton,
   .cancelButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     border: none;
-    padding: 12px ;
+    padding: 12px 0;
+    width: 135px;
     border-radius: 30px;
-    cursor: pointer;
     font-size: 14px;
     font-weight: 700;
-    flex: 1;
     transition: color 0.3s ease;
     transition: background-color 0.3s ease;
     }
+
+  @media screen and (max-width: 375px) {
+    .confirmButton,
+    .cancelButton {
+      width: 112px;
+    }
+    
+  }
 
   .confirmButton {
     background: #F6B83D;

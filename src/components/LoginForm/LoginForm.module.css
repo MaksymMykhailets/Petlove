@@ -87,14 +87,14 @@
   
   .validIcon {
     position: absolute;
-    right: 40px;
+    right: 50px;
     color: #08AA83;
     font-size: 18px;
   }
   
   .invalidIcon {
     position: absolute;
-    right: 40px;
+    right: 50px;
     color: #EF2447;
     font-size: 18px;
   }
