@@ -1,0 +1,55 @@
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 60px 0 80px;
+  }
+
+  .flipWrapper {
+    display: flex;
+    gap: 8px;
+  }
+
+  .pagesWrapper {
+    display: flex;
+    gap: 10px;
+    margin: 0 24px;
+  }
+  
+  .button,
+  .buttonFlip,
+  .ellipsis {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(38, 38, 38, 0.05);
+    border-radius: 50%;
+    background: none;
+    font-size: 18px;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+    color: #262626;
+  }
+  
+  .button:hover,
+  .active {
+    background-color: #f6b83d;
+    color: #fff;
+    border: none;
+  }
+  
+  .buttonFlip {
+    border-color: rgba(38, 38, 38, 0.20);
+  }
+
+  .buttonFlip:disabled {
+    color: #26262680;
+    cursor: not-allowed;
+  }
+  
+  .ellipsis {
+    font-size: 20px;
+    font-weight: 500;
+  }
