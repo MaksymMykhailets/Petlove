@@ -1,11 +1,15 @@
-import { useState } from "react";
 import PropTypes from "prop-types";
+import { useEffect, useState } from "react";
 import { LuSearch } from "react-icons/lu";
 import { RxCross2 } from "react-icons/rx";
 import css from "./SearchField.module.css";
 
-const SearchField = ({ onSubmit }) => {
-  const [query, setQuery] = useState("");
+const SearchField = ({ onSubmit, initialQuery = "" }) => {
+  const [query, setQuery] = useState(initialQuery);
+
+  useEffect(() => {
+    setQuery(initialQuery);
+  }, [initialQuery]);
 
   const handleChange = (e) => {
     setQuery(e.target.value);
@@ -40,6 +44,7 @@ const SearchField = ({ onSubmit }) => {
 
 SearchField.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  initialQuery: PropTypes.string,
 };
 
 export default SearchField;

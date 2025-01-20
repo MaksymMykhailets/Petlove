@@ -7,10 +7,7 @@ import {
   selectError,
   selectTotalPages,
 } from "../../redux/news/selectors";
-import {
-  setCurrentPage,
-  setSearchQuery,
-} from "../../redux/news/slice";
+import { setCurrentPage, setSearchQuery } from "../../redux/news/slice";
 import SearchField from "../../components/SearchField/SearchField";
 import NewsList from "../../components/NewsList/NewsList";
 import Pagination from "../../components/Pagination/Pagination";
@@ -43,12 +40,15 @@ const NewsPage = () => {
     <div className={css.container}>
       <div className={css.searchWrapper}>
         <h1 className={css.newsTitle}>News</h1>
-        <SearchField onSubmit={handleSearchSubmit} />
+        <SearchField onSubmit={handleSearchSubmit} initialQuery={searchQuery}/>
       </div>
       {isLoading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
+      {news.length === 0 && !isLoading && !error && (
+        <p className={css.noResults}>No results found for &quot;{searchQuery}&quot;.</p>
+      )}
       {news.length > 0 && <NewsList news={news} />}
-      {totalPages > 1 && (
+      {totalPages > 1 && news.length > 0 && (
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
