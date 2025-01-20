@@ -1,19 +1,18 @@
-import PropTypes from "prop-types";
+import { useSelector } from "react-redux";
+import { selectNews } from "../../redux/news/selectors";
 import NewsItem from "../NewsItem/NewsItem";
 import css from "./NewsList.module.css";
 
-const NewsList = ({ news }) => {
+const NewsList = () => {
+  const news = useSelector(selectNews);
+
   return (
     <ul className={css.list}>
       {news.map((item) => (
-        <NewsItem key={item._id} item={item} />
+        <NewsItem key={item.id} item={item} />
       ))}
     </ul>
   );
-};
-
-NewsList.propTypes = {
-  news: PropTypes.arrayOf(PropTypes.object).isRequired,
 };
 
 export default NewsList;

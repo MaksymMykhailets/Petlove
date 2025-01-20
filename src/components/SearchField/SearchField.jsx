@@ -30,11 +30,10 @@ const SearchField = ({ onSubmit }) => {
         placeholder="Search"
         className={css.input}
       />
-      {query ? (
-          <RxCross2 className={css.clearIcon} onClick={handleClear} />
-      ) : (
-        <LuSearch className={css.searchIcon} />
-      )}
+      <div className={css.icons}>
+        {query && <RxCross2 className={css.clearIcon} onClick={handleClear} />}
+        <LuSearch className={css.searchIcon} onClick={handleSubmit} />
+      </div>
     </form>
   );
 };

@@ -49,3 +49,15 @@
   .searchForm:focus-within {
     border-color: #F6B83D;
   }
+
+  .icons {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .icons {
+      gap: 4px;
+    }
+  }

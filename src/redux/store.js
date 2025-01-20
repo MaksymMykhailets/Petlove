@@ -19,10 +19,16 @@ const usersPersistConfig = {
   whitelist: ["token"],
 };
 
+const newsPersistConfig = {
+  key: "news",
+  storage,
+  whitelist: ["currentPage", "searchQuery"],
+};
+
 export const store = configureStore({
   reducer: {
     users: persistReducer(usersPersistConfig, usersReducer),
-    news: newsReducer,
+    news: persistReducer(newsPersistConfig, newsReducer),
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchNews } from "../../redux/news/operations";
 import {
@@ -7,6 +7,10 @@ import {
   selectError,
   selectTotalPages,
 } from "../../redux/news/selectors";
+import {
+  setCurrentPage,
+  setSearchQuery,
+} from "../../redux/news/slice";
 import SearchField from "../../components/SearchField/SearchField";
 import NewsList from "../../components/NewsList/NewsList";
 import Pagination from "../../components/Pagination/Pagination";
@@ -15,34 +19,32 @@ import css from "./NewsPage.module.css";
 const NewsPage = () => {
   const dispatch = useDispatch();
 
-  const [searchQuery, setSearchQuery] = useState("");
-  const [currentPage, setCurrentPage] = useState(1);
-  const [perPage] = useState(10);
-
   const news = useSelector(selectNews);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const totalPages = useSelector(selectTotalPages);
+  const currentPage = useSelector((state) => state.news.currentPage);
+  const searchQuery = useSelector((state) => state.news.searchQuery);
 
   useEffect(() => {
-    dispatch(fetchNews({ page: currentPage, perPage, searchQuery }));
-  }, [dispatch, currentPage, perPage, searchQuery]);
+    dispatch(fetchNews({ page: currentPage, perPage: 6, searchQuery }));
+  }, [dispatch, currentPage, searchQuery]);
 
   const handleSearchSubmit = (query) => {
-    setSearchQuery(query);
-    setCurrentPage(1);
+    dispatch(setSearchQuery(query));
+    dispatch(setCurrentPage(1));
   };
 
   const handlePageChange = (page) => {
-    setCurrentPage(page);
+    dispatch(setCurrentPage(page));
   };
 
   return (
     <div className={css.container}>
-        <div className={css.searchWrapper}>
-      <h1 className={css.newsTitle}>News</h1>
-      <SearchField onSubmit={handleSearchSubmit} />
-        </div>
+      <div className={css.searchWrapper}>
+        <h1 className={css.newsTitle}>News</h1>
+        <SearchField onSubmit={handleSearchSubmit} />
+      </div>
       {isLoading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}
       {news.length > 0 && <NewsList news={news} />}
