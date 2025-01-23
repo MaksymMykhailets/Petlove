@@ -18,10 +18,12 @@ const LoginPage = () => {
         }}
       />
       <div className={css.container}>
+        <div className={css.titleWrapper}>
         <Title
           title="Login"
-          subtitle="Welcome! Please enter your credentials to login to the platform:"
         />
+        <p className={css.text}>Welcome! Please enter your credentials to login to the platform:</p>
+        </div>
         <LoginForm />
         <p className={css.footerText}>
           Don't have an account? <a href="/register">Register</a>

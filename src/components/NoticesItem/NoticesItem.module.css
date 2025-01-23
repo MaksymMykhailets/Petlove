@@ -1,0 +1,146 @@
+.item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 16px;
+    background-color: #fff;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  @media screen and (min-width: 768px) {
+    .item {
+      padding: 26px;
+    }
+  }
+  
+  .item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.15);
+  }
+  
+  .image {
+    width: 287px;
+    height: 178px;
+    object-fit: cover;
+    border-radius: 16px;
+    margin-bottom: 24px;
+  }
+
+  @media  screen and (max-width: 768px) {
+    .image {
+      width: 294px;
+    } 
+  }
+
+  @media screen and (min-width: 1280px) {
+    .image {
+      width: 315px;
+    }
+  }
+  .titleWrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .title {
+    font-size: 16px;
+    font-weight: 700;
+  }
+
+  @media screen and (min-width: 768px) {
+    .title {
+      font-size: 18px;
+    }
+  }
+  
+  .star {
+    margin-top: -1px;
+    color: #F6B83D;
+  }
+  .popularity {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+
+    font-size: 14px;
+    font-weight: 500;
+  }
+  
+  .info {
+    width: 100%;
+    display: flex;
+    gap: 14px;
+    font-size: 10px;
+    font-weight: 500;
+    margin: 8px 0 16px;
+  }
+  .strong {
+    color: rgba(38, 38, 38, 0.50);
+    font-weight: 500;
+  }
+
+  @media screen and (min-width: 768px) {
+    .info {
+      font-size: 12px;
+      gap: 10px;
+    }
+  }
+
+  .comment {
+    overflow: hidden;
+    font-size: 14px;
+    font-weight: 500;
+    display: flex;
+    align-self: flex-start;
+  }
+  .price {
+    font-size: 16px;
+    font-weight: 700;
+    margin-top: auto;
+    margin-bottom: 12px;
+    display: flex;
+    align-self: flex-start;
+  }
+  
+  .actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .learnMore {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    border-radius: 30px;
+    padding: 14px 0;
+    width: 80%;
+    background-color: #F6B83D;
+    transition: background-color 0.3s ease;
+
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 500;
+  }
+  
+  .learnMore:hover {
+    background-color: #F9B020;
+  }
+  
+  .favorite {
+    border: none;
+    display: flex;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background-color: #FFF4DF;
+    color: #F6B83D;
+    align-items: center;
+    justify-content: center;
+  }

@@ -10,6 +10,7 @@ const RegistrationPage = lazy(() => import("../../pages/RegistrationPage/Registr
 const LoginPage = lazy(() => import("../../pages/LoginPage/LoginPage"));
 const ProfilePage = lazy(() => import("../../pages/ProfilePage/ProfilePage"));
 const NewsPage = lazy(() => import("../../pages/NewsPage/NewsPage"));
+const NoticesPage = lazy(() => import("../../pages/NoticesPage/NoticesPage"));
 
 const App = () => {
   const location = useLocation();
@@ -31,6 +32,7 @@ const App = () => {
           }
         />
         <Route path="/news" element={<NewsPage />} />
+        <Route path="/notices" element={<NoticesPage />} />
       </Routes>
     </Suspense>
   );

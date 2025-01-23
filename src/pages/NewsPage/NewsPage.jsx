@@ -12,6 +12,7 @@ import SearchField from "../../components/SearchField/SearchField";
 import NewsList from "../../components/NewsList/NewsList";
 import Pagination from "../../components/Pagination/Pagination";
 import css from "./NewsPage.module.css";
+import Title from "../../components/Title/Title";
 
 const NewsPage = () => {
   const dispatch = useDispatch();
@@ -39,7 +40,7 @@ const NewsPage = () => {
   return (
     <div className={css.container}>
       <div className={css.searchWrapper}>
-        <h1 className={css.newsTitle}>News</h1>
+        <Title title="News" />
         <SearchField onSubmit={handleSearchSubmit} initialQuery={searchQuery}/>
       </div>
       {isLoading && <p>Loading...</p>}

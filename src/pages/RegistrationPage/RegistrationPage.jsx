@@ -18,10 +18,12 @@ const RegistrationPage = () => {
   }}
 />
       <div className={css.container}>
+      <div className={css.titleWrapper}>
       <Title
         title="Registration"
-        subtitle="Thank you for your interest in our platform."
       />
+      <p className={css.text}>Thank you for your interest in our platform.</p>
+      </div>
       <RegistrationForm />
       <p className={css.footerText}>
         Already have an account? <a href="/login">Login</a>

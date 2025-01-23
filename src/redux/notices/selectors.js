@@ -1,0 +1,11 @@
+export const selectNotices = (state) => state.notices.items;
+export const selectSelectedNotice = (state) => state.notices.selectedNotice;
+export const selectCategories = (state) => state.notices.categories;
+export const selectSexOptions = (state) => state.notices.sexOptions;
+export const selectSpecies = (state) => state.notices.species;
+export const selectFavorites = (state) => state.notices.favorites;
+export const selectTotalPages = (state) => state.notices.totalPages;
+export const selectCurrentPage = (state) => state.notices.currentPage;
+export const selectSearchQuery = (state) => state.notices.searchQuery;
+export const selectIsLoading = (state) => state.notices.isLoading;
+export const selectError = (state) => state.notices.error;

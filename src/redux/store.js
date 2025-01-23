@@ -12,6 +12,8 @@ import {
 import storage from "redux-persist/lib/storage";
 import { usersReducer } from "./users/slice";
 import { newsReducer } from "./news/slice";
+import { noticesReducer } from "./notices/slice";
+import { filtersReducer } from "./filters/slice";
 
 const usersPersistConfig = {
   key: "users",
@@ -25,10 +27,24 @@ const newsPersistConfig = {
   whitelist: ["currentPage", "searchQuery"],
 };
 
+const noticesPersistConfig = {
+  key: "notices",
+  storage,
+  whitelist: ["currentPage", "searchQuery", "favorites"],
+};
+
+const filtersPersistConfig = {
+  key: "filters",
+  storage,
+  whitelist: ["searchQuery", "category", "gender", "type", "location"], // Вказуємо збережені поля
+};
+
 export const store = configureStore({
   reducer: {
     users: persistReducer(usersPersistConfig, usersReducer),
     news: persistReducer(newsPersistConfig, newsReducer),
+    notices: persistReducer(noticesPersistConfig, noticesReducer),
+    filters: persistReducer(filtersPersistConfig, filtersReducer),
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({

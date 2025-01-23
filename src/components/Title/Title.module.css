@@ -1,8 +1,6 @@
 .titleBlock {
     display: flex;
     flex-direction: column;
-    gap: 12px;
-    margin-bottom: 20px;
   }
   
   .title {
@@ -14,16 +12,5 @@
   @media screen and (min-width: 768px) {
     .title {
       font-size: 54px;
-    }
-  }
-  
-  .subtitle {
-    font-size: 14px;
-    font-weight: 500;
-  }
-
-  @media screen and (min-width: 768px) {
-    .subtitle {
-      font-size: 18px;
     }
   }

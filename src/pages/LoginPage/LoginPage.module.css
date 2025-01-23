@@ -42,6 +42,31 @@
     }
   }
 
+  .titleWrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  @media  screen and (min-width: 768px) {
+    .titleWrapper {
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+  }
+
+  .text {
+    font-size: 14px;
+    font-weight: 500;
+  }
+
+  @media screen and (min-width: 768px) {
+    .text {
+      font-size: 18px;
+    }
+  }
+
   .footerText, .footerText a {
     display: flex;
     align-self: center;
