@@ -24,6 +24,7 @@ import {
 } from "../../redux/filters/slice";
 import SearchField from "../SearchField/SearchField";
 import css from "./NoticesFilters.module.css";
+import selectStyles from "./selectStyles";
 
 const NoticesFilters = ({ onFilterChange }) => {
   const dispatch = useDispatch();
@@ -75,10 +76,13 @@ const NoticesFilters = ({ onFilterChange }) => {
   return (
     <div className={css.filters}>
       <div className={css.row}>
+        <div className={css.first}>
         <SearchField
           onSubmit={handleSearchChange}
           initialQuery={filters.searchQuery}
         />
+        </div>
+        <div className={css.second}>
         <Select
           options={categories.map((category) => ({
             value: category,
@@ -86,8 +90,10 @@ const NoticesFilters = ({ onFilterChange }) => {
           }))}
           onChange={handleCategoryChange}
           placeholder="Category"
-          className={css.select}
+          styles={selectStyles}
         />
+        </div>
+        <div className={css.third}>
         <Select
           options={sexOptions.map((sex) => ({
             value: sex,
@@ -95,8 +101,10 @@ const NoticesFilters = ({ onFilterChange }) => {
           }))}
           onChange={handleGenderChange}
           placeholder="By gender"
-          className={css.select}
+          styles={selectStyles}
         />
+        </div>
+        <div className={css.fourth}>
         <Select
           options={species.map((type) => ({
             value: type,
@@ -104,8 +112,10 @@ const NoticesFilters = ({ onFilterChange }) => {
           }))}
           onChange={handleTypeChange}
           placeholder="By type"
-          className={css.select}
+          styles={selectStyles}
         />
+        </div>
+        <div className={css.fifth}>
         <Select
           options={locations.map((location) => ({
             value: location.cityEn,
@@ -113,9 +123,11 @@ const NoticesFilters = ({ onFilterChange }) => {
           }))}
           onChange={handleLocationChange}
           placeholder="Location"
-          className={css.select}
+          styles={selectStyles}
         />
+        </div>
       </div>
+      <hr className={css.hr}/>
       <div className={css.sorting}>
         <label>
           <input

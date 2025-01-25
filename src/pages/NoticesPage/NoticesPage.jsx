@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Title from "../../components/Title/Title";
 import NoticesList from "../../components/NoticesList/NoticesList";
 import Pagination from "../../components/Pagination/Pagination";
+import NoticesFilters from "../../components/NoticesFilters/NoticesFilters";
 import { fetchNotices, toggleFavoriteNotice } from "../../redux/notices/operations";
 import {
   selectTotalPages,
@@ -31,6 +32,11 @@ const NoticesPage = () => {
     dispatch(toggleFavoriteNotice(id));
   };
 
+  const handleFilterChange = () => {
+    dispatch(setCurrentPage(1));
+    dispatch(fetchNotices({ page: 1, perPage: 6 }));
+  };
+
   const handlePageChange = (page) => {
     dispatch(setCurrentPage(page));
   };
@@ -38,6 +44,7 @@ const NoticesPage = () => {
   return (
     <div className={css.container}>
       <Title title="Find your favorite pet" />
+      <NoticesFilters onFilterChange={handleFilterChange} />
       <NoticesList
         notices={notices}
         onLearnMore={handleLearnMore}

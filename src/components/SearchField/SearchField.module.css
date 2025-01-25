@@ -6,15 +6,12 @@
     background-color: #fff;
     width: 100%;
     padding: 12px;
-    margin-top: 20px;
-    margin-bottom: 24px;
 }
 
 @media screen and (min-width: 768px) {
     .searchForm {
         width: 230px;
         padding: 14px;
-        margin: 0;
     }
     
 }

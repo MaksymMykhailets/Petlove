@@ -41,7 +41,9 @@ const NewsPage = () => {
     <div className={css.container}>
       <div className={css.searchWrapper}>
         <Title title="News" />
-        <SearchField onSubmit={handleSearchSubmit} initialQuery={searchQuery}/>
+        <div className={css.search}>
+        <SearchField onSubmit={handleSearchSubmit} initialQuery={searchQuery} />
+        </div>
       </div>
       {isLoading && <p>Loading...</p>}
       {error && <p>Error: {error}</p>}

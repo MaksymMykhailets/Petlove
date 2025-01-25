@@ -14,6 +14,7 @@ import { usersReducer } from "./users/slice";
 import { newsReducer } from "./news/slice";
 import { noticesReducer } from "./notices/slice";
 import { filtersReducer } from "./filters/slice";
+import { citiesReducer } from "./cities/slice";
 
 const usersPersistConfig = {
   key: "users",
@@ -36,7 +37,7 @@ const noticesPersistConfig = {
 const filtersPersistConfig = {
   key: "filters",
   storage,
-  whitelist: ["searchQuery", "category", "gender", "type", "location"], // Вказуємо збережені поля
+  whitelist: ["searchQuery", "category", "gender", "type", "location"],
 };
 
 export const store = configureStore({
@@ -45,6 +46,7 @@ export const store = configureStore({
     news: persistReducer(newsPersistConfig, newsReducer),
     notices: persistReducer(noticesPersistConfig, noticesReducer),
     filters: persistReducer(filtersPersistConfig, filtersReducer),
+    cities: citiesReducer
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
