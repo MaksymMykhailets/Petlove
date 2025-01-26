@@ -1,5 +1,5 @@
 .container {    
-    margin-top: 26px;
+    margin: 26px 0 80px;
     padding: 0 20px;
 }
 
@@ -22,4 +22,9 @@
         justify-content: space-between;
         margin-bottom: 44px;
     }
+}
+
+.noResults {
+    margin-top: 20px;
+    text-align: center;
 }

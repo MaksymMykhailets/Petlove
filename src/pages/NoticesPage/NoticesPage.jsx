@@ -9,7 +9,14 @@ import {
   selectTotalPages,
   selectCurrentPage,
 } from "../../redux/notices/selectors";
-import { selectFilteredNoticesWithFilters } from "../../redux/filters/selectors";
+import {
+  selectFilteredNoticesWithFilters,
+  selectSearchQuery,
+  selectCategory,
+  selectGender,
+  selectType,
+  selectLocation,
+} from "../../redux/filters/selectors";
 import { setCurrentPage } from "../../redux/notices/slice";
 import css from "./NoticesPage.module.css";
 
@@ -18,10 +25,15 @@ const NoticesPage = () => {
   const notices = useSelector(selectFilteredNoticesWithFilters);
   const totalPages = useSelector(selectTotalPages);
   const currentPage = useSelector(selectCurrentPage);
+  const searchQuery = useSelector(selectSearchQuery);
+  const category = useSelector(selectCategory);
+  const gender = useSelector(selectGender);
+  const type = useSelector(selectType);
+  const location = useSelector(selectLocation);
 
   useEffect(() => {
-    dispatch(fetchNotices({ page: currentPage, perPage: 6 }));
-  }, [dispatch, currentPage]);
+    dispatch(fetchNotices({ page: currentPage, perPage: 6, searchQuery, category, gender, type, location }));
+  }, [dispatch, currentPage, searchQuery, category, gender, type, location]);
 
   const handleLearnMore = (id) => {
     console.log(`Fetch details for notice ID: ${id}`);
@@ -34,28 +46,36 @@ const NoticesPage = () => {
 
   const handleFilterChange = () => {
     dispatch(setCurrentPage(1));
-    dispatch(fetchNotices({ page: 1, perPage: 6 }));
+    dispatch(fetchNotices({ page: 1, perPage: 6, searchQuery, category, gender, type, location }));
   };
 
   const handlePageChange = (page) => {
     dispatch(setCurrentPage(page));
+    dispatch(fetchNotices({ page, perPage: 6, searchQuery, category, gender, type, location }));
   };
 
   return (
     <div className={css.container}>
       <Title title="Find your favorite pet" />
       <NoticesFilters onFilterChange={handleFilterChange} />
-      <NoticesList
-        notices={notices}
-        onLearnMore={handleLearnMore}
-        onToggleFavorite={handleToggleFavorite}
-      />
-      {totalPages > 1 && (
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-        />
+      {notices.length === 0 ? (
+        <p className={css.noResults}>
+          Unfortunately, no pets matching this search query or filters were found on this page 😢. Please try another one.</p>
+      ) : (
+        <>
+          <NoticesList
+            notices={notices}
+            onLearnMore={handleLearnMore}
+            onToggleFavorite={handleToggleFavorite}
+          />
+          {totalPages > 1 && (
+            <Pagination
+              currentPage={currentPage}
+              totalPages={totalPages}
+              onPageChange={handlePageChange}
+            />
+          )}
+        </>
       )}
     </div>
   );

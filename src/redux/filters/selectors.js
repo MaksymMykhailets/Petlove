@@ -3,32 +3,32 @@ import { selectCategories, selectSexOptions, selectSpecies, selectNotices } from
 import { selectCityLocations } from "../cities/selectors";
 
 export const selectFilters = (state) => state.filters;
+export const selectSearchQuery = (state) => state.filters.searchQuery;
+export const selectCategory = (state) => state.filters.category;
+export const selectGender = (state) => state.filters.gender;
+export const selectType = (state) => state.filters.type;
+export const selectLocation = (state) => state.filters.location;
 
-// Селектор для категорій, заснованих на даних із notices
 export const selectAvailableCategories = createSelector(
   [selectCategories],
   (categories) => categories || []
 );
 
-// Селектор для статей, заснованих на даних із notices
 export const selectAvailableSexOptions = createSelector(
   [selectSexOptions],
   (sexOptions) => sexOptions || []
 );
 
-// Селектор для видів (species), заснованих на даних із notices
 export const selectAvailableSpecies = createSelector(
   [selectSpecies],
   (species) => species || []
 );
 
-// Селектор для локацій, заснованих на даних із cities
 export const selectAvailableLocations = createSelector(
   [selectCityLocations],
   (locations) => locations || []
 );
 
-// Поєднання фільтрів із доступними опціями
 export const selectFilteredNoticesWithFilters = createSelector(
   [selectNotices, selectFilters],
   (notices, filters) => {

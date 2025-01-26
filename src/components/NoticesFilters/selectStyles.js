@@ -7,6 +7,7 @@ const selectStyles = {
       boxShadow: "none",
       backgroundColor: "#fff",
       fontWeight: "500",
+      cursor: "pointer",
     }),
     placeholder: (provided) => ({
       ...provided,
@@ -18,6 +19,7 @@ const selectStyles = {
       color: "#262626",
       fontSize: window.innerWidth <= 320 ? "14px" : "16px",
       textTransform: "capitalize",
+      cursor: "pointer",
     }),
     indicatorSeparator: () => ({
       display: "none",
@@ -25,6 +27,7 @@ const selectStyles = {
     dropdownIndicator: (provided) => ({
       ...provided,
       color: "#262626",
+      cursor: "pointer",
     }),
     menu: (provided) => ({
       ...provided,
@@ -32,11 +35,13 @@ const selectStyles = {
       overflow: "hidden",
       border: "none",
       boxShadow: "none",
+      cursor: "pointer",
     }),
     option: (provided, state) => ({
       ...provided,
       fontSize: window.innerWidth <= 320 ? "14px" : "16px",
       textTransform: "capitalize",
+      cursor: "pointer",
       color: state.isFocused ? "#F6B83D" : "rgba(38, 38, 38, 0.60)",
       backgroundColor: state.isFocused ? "transparent" : "transparent",
       transition: "color 0.3s ease",

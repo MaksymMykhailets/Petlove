@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import Select from "react-select";
@@ -36,6 +36,16 @@ const NoticesFilters = ({ onFilterChange }) => {
 
   const filters = useSelector((state) => state.filters);
 
+  const [categoryValue, setCategoryValue] = useState(null);
+  const [genderValue, setGenderValue] = useState(null);
+  const [typeValue, setTypeValue] = useState(null);
+  const [locationValue, setLocationValue] = useState(null);
+
+  const addShowAllOption = (options) => [
+    { value: "", label: "Show all" },
+    ...options,
+  ];
+
   useEffect(() => {
     dispatch(fetchNoticeCategories());
     dispatch(fetchNoticeSexOptions());
@@ -49,26 +59,35 @@ const NoticesFilters = ({ onFilterChange }) => {
   };
 
   const handleCategoryChange = (selectedOption) => {
+    setCategoryValue(selectedOption);
     dispatch(setCategory(selectedOption?.value || ""));
     onFilterChange();
   };
 
   const handleGenderChange = (selectedOption) => {
+    setGenderValue(selectedOption);
     dispatch(setGender(selectedOption?.value || ""));
     onFilterChange();
   };
 
   const handleTypeChange = (selectedOption) => {
+    setTypeValue(selectedOption);
     dispatch(setType(selectedOption?.value || ""));
     onFilterChange();
   };
 
   const handleLocationChange = (selectedOption) => {
+    setLocationValue(selectedOption);
     dispatch(setLocation(selectedOption?.value || ""));
     onFilterChange();
   };
 
   const handleReset = () => {
+    console.log("Reset button clicked");
+    setCategoryValue(null);
+    setGenderValue(null);
+    setTypeValue(null);
+    setLocationValue(null);
     dispatch(resetFilters());
     onFilterChange();
   };
@@ -77,57 +96,69 @@ const NoticesFilters = ({ onFilterChange }) => {
     <div className={css.filters}>
       <div className={css.row}>
         <div className={css.first}>
-        <SearchField
-          onSubmit={handleSearchChange}
-          initialQuery={filters.searchQuery}
-        />
+          <SearchField
+            onSubmit={handleSearchChange}
+            initialQuery={filters.searchQuery}
+          />
         </div>
         <div className={css.second}>
-        <Select
-          options={categories.map((category) => ({
-            value: category,
-            label: category,
-          }))}
-          onChange={handleCategoryChange}
-          placeholder="Category"
-          styles={selectStyles}
-        />
+          <Select
+            value={categoryValue}
+            options={addShowAllOption(
+              categories.map((category) => ({
+                value: category,
+                label: category,
+              }))
+            )}
+            onChange={handleCategoryChange}
+            placeholder="Category"
+            styles={selectStyles}
+          />
         </div>
         <div className={css.third}>
-        <Select
-          options={sexOptions.map((sex) => ({
-            value: sex,
-            label: sex,
-          }))}
-          onChange={handleGenderChange}
-          placeholder="By gender"
-          styles={selectStyles}
-        />
+          <Select
+            value={genderValue}
+            options={addShowAllOption(
+              sexOptions.map((sex) => ({
+                value: sex,
+                label: sex,
+              }))
+            )}
+            onChange={handleGenderChange}
+            placeholder="By gender"
+            styles={selectStyles}
+          />
         </div>
         <div className={css.fourth}>
-        <Select
-          options={species.map((type) => ({
-            value: type,
-            label: type,
-          }))}
-          onChange={handleTypeChange}
-          placeholder="By type"
-          styles={selectStyles}
-        />
+          <Select
+            value={typeValue}
+            options={addShowAllOption(
+              species.map((type) => ({
+                value: type,
+                label: type,
+              }))
+            )}
+            onChange={handleTypeChange}
+            placeholder="By type"
+            styles={selectStyles}
+          />
         </div>
         <div className={css.fifth}>
-        <Select
-          options={locations.map((location) => ({
-            value: location.cityEn,
-            label: location.cityEn,
-          }))}
-          onChange={handleLocationChange}
-          placeholder="Location"
-          styles={selectStyles}
-        />
+          <Select
+            value={locationValue}
+            options={addShowAllOption(
+              locations.map((location) => ({
+                value: location.cityEn,
+                label: location.cityEn,
+              }))
+            )}
+            onChange={handleLocationChange}
+            placeholder="Location"
+            styles={selectStyles}
+          />
         </div>
       </div>
-      <hr className={css.hr}/>
+      <hr className={css.hr} />
       <div className={css.sorting}>
         <label>
           <input

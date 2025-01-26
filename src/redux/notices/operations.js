@@ -3,9 +3,11 @@ import axiosInstance from "../api";
 
 export const fetchNotices = createAsyncThunk(
   "notices/fetchNotices",
-  async (params, { rejectWithValue }) => {
+  async ({ page = 1, perPage = 6, searchQuery = "", category = "", gender = "", type = "", location = "" }, { rejectWithValue }) => {
     try {
-      const response = await axiosInstance.get("/notices", { params });
+      const response = await axiosInstance.get("/notices", {
+        params: { page, perPage, keyword: searchQuery, category, gender, type, location },
+      });
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response?.data || error.message);
