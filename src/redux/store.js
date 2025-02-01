@@ -37,7 +37,7 @@ const noticesPersistConfig = {
 const filtersPersistConfig = {
   key: "filters",
   storage,
-  whitelist: ["searchQuery", "category", "gender", "type", "location"],
+  whitelist: ["searchQuery", "category", "gender", "type", "location", "sort"],
 };
 
 export const store = configureStore({

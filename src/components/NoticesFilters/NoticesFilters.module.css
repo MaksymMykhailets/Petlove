@@ -130,13 +130,16 @@
     cursor: pointer;
 }
 
-.sorting input[type="radio"] {
+.sorting input[type="checkbox"] {
     display: none;
 }
 
-.sorting input[type="radio"]:checked + label {
-    background-color: #FFD700;
-    color: #FFFFFF;
+.sorting input[type="checkbox"]:checked + label {
+    background-color: #F6B83D;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
 .resetButton {

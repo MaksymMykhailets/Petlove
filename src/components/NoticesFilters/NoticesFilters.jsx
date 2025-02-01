@@ -20,11 +20,13 @@ import {
   setGender,
   setType,
   setLocation,
+  setSort,
   resetFilters,
 } from "../../redux/filters/slice";
 import SearchField from "../SearchField/SearchField";
 import css from "./NoticesFilters.module.css";
 import selectStyles from "./selectStyles";
+import { RxCross2 } from "react-icons/rx";
 
 const NoticesFilters = ({ onFilterChange }) => {
   const dispatch = useDispatch();
@@ -82,8 +84,19 @@ const NoticesFilters = ({ onFilterChange }) => {
     onFilterChange();
   };
 
+  const handleSortChange = (sortValue) => {
+    dispatch(setSort(sortValue));
+    onFilterChange();
+  };
+
+  const handleRemoveSort = (sortValue, event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    dispatch(setSort(sortValue));
+    onFilterChange();
+  };
+
   const handleReset = () => {
-    console.log("Reset button clicked");
     setCategoryValue(null);
     setGenderValue(null);
     setTypeValue(null);
@@ -160,42 +173,23 @@ const NoticesFilters = ({ onFilterChange }) => {
       </div>
       <hr className={css.hr} />
       <div className={css.sorting}>
-        <label>
-          <input
-            type="radio"
-            name="sort"
-            value="popular"
-            onChange={() => onFilterChange("popular")}
-          />
-          Popular
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="sort"
-            value="unpopular"
-            onChange={() => onFilterChange("unpopular")}
-          />
-          Unpopular
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="sort"
-            value="cheap"
-            onChange={() => onFilterChange("cheap")}
-          />
-          Cheap
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="sort"
-            value="expensive"
-            onChange={() => onFilterChange("expensive")}
-          />
-          Expensive
-        </label>
+        {["popular", "unpopular", "cheap", "expensive"].map((option) => (
+          <div key={option} className={filters.sort.includes(option) ? css.selected : ""}>
+            <input
+              type="checkbox"
+              id={option}
+              value={option}
+              checked={filters.sort.includes(option)}
+              onChange={() => handleSortChange(option)}
+            />
+            <label htmlFor={option} className={css.sortLabel}>
+              {option.charAt(0).toUpperCase() + option.slice(1)}
+              {filters.sort.includes(option) && (
+                <RxCross2 className={css.crossIcon} onClick={(event) => handleRemoveSort(option, event)} />
+              )}
+            </label>
+          </div>
+        ))}
       </div>
       <button className={css.resetButton} onClick={handleReset}>
         Reset

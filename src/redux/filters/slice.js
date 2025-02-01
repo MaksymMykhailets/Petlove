@@ -6,6 +6,7 @@ const initialState = {
   gender: "",
   type: "",
   location: "",
+  sort: [],
 };
 
 const filtersSlice = createSlice({
@@ -27,12 +28,38 @@ const filtersSlice = createSlice({
     setLocation(state, action) {
       state.location = action.payload;
     },
+    setSort(state, action) {
+      const sortOption = action.payload;
+      if (!Array.isArray(state.sort)) {
+        state.sort = [];
+      }
+    
+      const popularityOptions = ["popular", "unpopular"];
+      const priceOptions = ["cheap", "expensive"];
+    
+      if (state.sort.includes(sortOption)) {
+        state.sort = state.sort.filter((option) => option !== sortOption);
+      } else {
+        state.sort = state.sort.filter(
+          (option) =>
+            !(
+              popularityOptions.includes(option) && popularityOptions.includes(sortOption)
+            ) &&
+            !(
+              priceOptions.includes(option) && priceOptions.includes(sortOption)
+            )
+        );
+    
+        state.sort.push(sortOption);
+      }
+    },
     resetFilters(state) {
       state.searchQuery = "";
       state.category = "";
       state.gender = "";
       state.type = "";
       state.location = "";
+      state.sort = [];
     },
   },
 });
@@ -43,6 +70,7 @@ export const {
   setGender,
   setType,
   setLocation,
+  setSort,
   resetFilters,
 } = filtersSlice.actions;
 
